@@ -1,0 +1,434 @@
+2025-02-05 23:44:17,274 - app_logger - ERROR - Ошибка при обновлении данных админа
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2437, in _determine_joins
+    self.primaryjoin = join_condition(
+                       ^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\util.py", line 123, in join_condition
+    return Join._join_condition(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\selectable.py", line 1412, in _join_condition
+    raise exc.NoForeignKeysError(
+sqlalchemy.exc.NoForeignKeysError: Can't find any foreign key relationships between 'users' and 'user_answers'.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\adminservice.py", line 168, in change_admin_data_db
+    admin = db.query(Admin).filter_by(id=admin_id).first()
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2955, in query
+    return self._query_cls(entities, self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 275, in __init__
+    self._set_entities(entities)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 288, in _set_entities
+    coercions.expect(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 388, in expect
+    insp._post_inspect
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1257, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4254, in _do_configure_registries
+    mapper._post_configure_properties()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2418, in _post_configure_properties
+    prop.init()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\interfaces.py", line 589, in init
+    self.do_init()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 1658, in do_init
+    self._setup_join_conditions()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 1898, in _setup_join_conditions
+    self._join_condition = jc = JoinCondition(
+                                ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2324, in __init__
+    self._determine_joins()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2458, in _determine_joins
+    raise sa_exc.NoForeignKeysError(
+sqlalchemy.exc.NoForeignKeysError: Could not determine join condition between parent/child tables on relationship User.answers - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+2025-02-05 23:54:37,237 - app_logger - ERROR - Error in admin_registration, performing rollback
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2437, in _determine_joins
+    self.primaryjoin = join_condition(
+                       ^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\util.py", line 123, in join_condition
+    return Join._join_condition(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\selectable.py", line 1412, in _join_condition
+    raise exc.NoForeignKeysError(
+sqlalchemy.exc.NoForeignKeysError: Can't find any foreign key relationships between 'users' and 'user_answers'.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\adminservice.py", line 18, in admin_registration_db
+    existing_admin = db.query(Admin).filter_by(admin_number=admin_number).first()
+                     ^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2955, in query
+    return self._query_cls(entities, self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 275, in __init__
+    self._set_entities(entities)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 288, in _set_entities
+    coercions.expect(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 388, in expect
+    insp._post_inspect
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1257, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4254, in _do_configure_registries
+    mapper._post_configure_properties()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2418, in _post_configure_properties
+    prop.init()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\interfaces.py", line 589, in init
+    self.do_init()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 1658, in do_init
+    self._setup_join_conditions()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 1898, in _setup_join_conditions
+    self._join_condition = jc = JoinCondition(
+                                ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2324, in __init__
+    self._determine_joins()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2458, in _determine_joins
+    raise sa_exc.NoForeignKeysError(
+sqlalchemy.exc.NoForeignKeysError: Could not determine join condition between parent/child tables on relationship User.answers - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+2025-02-05 23:56:12,357 - app_logger - ERROR - Error in admin_registration, performing rollback
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\adminservice.py", line 18, in admin_registration_db
+    existing_admin = db.query(Admin).filter_by(admin_number=admin_number).first()
+                     ^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2955, in query
+    return self._query_cls(entities, self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 275, in __init__
+    self._set_entities(entities)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 288, in _set_entities
+    coercions.expect(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 388, in expect
+    insp._post_inspect
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1257, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4250, in _do_configure_registries
+    raise e
+sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[User(users)]'. Original exception was: Could not determine join condition between parent/child tables on relationship User.answers - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+2025-02-06 21:04:30,035 - app_logger - ERROR - Error in admin_registration, performing rollback
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\adminservice.py", line 18, in admin_registration_db
+    existing_admin = db.query(Admin).filter_by(number=number).first()
+                     ^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2955, in query
+    return self._query_cls(entities, self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 275, in __init__
+    self._set_entities(entities)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 288, in _set_entities
+    coercions.expect(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 388, in expect
+    insp._post_inspect
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1257, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4250, in _do_configure_registries
+    raise e
+sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[User(users)]'. Original exception was: Could not determine join condition between parent/child tables on relationship User.answers - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+2025-02-06 21:04:32,051 - app_logger - ERROR - Error in admin_registration, performing rollback
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\adminservice.py", line 18, in admin_registration_db
+    existing_admin = db.query(Admin).filter_by(number=number).first()
+                     ^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2955, in query
+    return self._query_cls(entities, self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 275, in __init__
+    self._set_entities(entities)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 288, in _set_entities
+    coercions.expect(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 388, in expect
+    insp._post_inspect
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1257, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4250, in _do_configure_registries
+    raise e
+sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[User(users)]'. Original exception was: Could not determine join condition between parent/child tables on relationship User.answers - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+2025-02-07 08:46:19,911 - app_logger - INFO - Не найден пользователь или неверный пароль для sdf
+2025-02-07 08:47:37,378 - app_logger - INFO - Админ 933977109 зарегистрирован успешно.
+2025-02-07 08:47:52,030 - app_logger - INFO - Не найден пользователь или неверный пароль для Алексей
+2025-02-07 09:14:24,625 - app_logger - INFO - Админ с номером: 933977109 уже существует.
+2025-02-07 19:52:11,974 - app_logger - INFO - Админ с номером: 933977109 уже существует.
+2025-02-07 19:52:27,488 - app_logger - INFO - Не найден пользователь или неверный пароль для Алексей
+2025-02-07 19:52:53,015 - app_logger - INFO - Не найден пользователь или неверный пароль для Алексей
+2025-02-07 20:02:16,820 - app_logger - INFO - Админ 933977110 зарегистрирован успешно.
+2025-02-07 20:09:53,667 - app_logger - INFO - Тест с ID 1 не найден.
+2025-02-07 20:09:53,670 - app_logger - ERROR - Ошибка при сохранении ответа для теста 1.
+2025-02-07 20:16:13,646 - app_logger - INFO - Не найден пользователь или неверный пароль для 933977109
+2025-02-07 20:16:33,953 - app_logger - INFO - Не найден пользователь или неверный пароль для 933977110
+2025-02-07 20:30:05,280 - app_logger - INFO - Пользователь 933977109 успешно авторизован
+2025-02-07 20:41:25,022 - app_logger - INFO - Админ с id 1 удалён.
+2025-02-07 21:05:19,277 - app_logger - INFO - Пользователь 933977112 успешно авторизован
+2025-02-07 21:07:48,172 - app_logger - INFO - Админ с ID: 1 не найден.
+2025-02-07 21:07:54,382 - app_logger - INFO - Админ с id 2 удалён.
+2025-02-07 21:08:24,536 - app_logger - INFO - Админ 933977114 зарегистрирован успешно.
+2025-02-07 21:08:50,759 - app_logger - INFO - Данные админа с id 3 обновлены.
+2025-02-07 21:09:53,394 - app_logger - INFO - Админ с ID: 4 для обновления данных не найден.
+2025-02-07 21:10:12,613 - app_logger - INFO - Данные админа с id 3 обновлены.
+2025-02-07 21:56:38,632 - app_logger - INFO - Получено 0 тестов.
+2025-02-07 21:56:50,543 - app_logger - ERROR - Ошибка при добавлении теста
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.InvalidTextRepresentation: ОШИБКА:  неверное значение для перечисления testlevel: "string"
+LINE 1: ...ring', 'string', 'string', 'string', 'string', 0, 'string', ...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\testservice.py", line 24, in add_test_db
+    db.commit()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4353, in flush
+    self._flush(objects)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4449, in _flush
+    flush_context.execute()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.DataError: (psycopg2.errors.InvalidTextRepresentation) ОШИБКА:  неверное значение для перечисления testlevel: "string"
+LINE 1: ...ring', 'string', 'string', 'string', 'string', 0, 'string', ...
+                                                             ^
+
+[SQL: INSERT INTO tests (question, var_1, var_2, var_3, var_4, correct_answer, timer, level, test_type) VALUES (%(question)s, %(var_1)s, %(var_2)s, %(var_3)s, %(var_4)s, %(correct_answer)s, %(timer)s, %(level)s, %(test_type)s) RETURNING tests.id]
+[parameters: {'question': 'string', 'var_1': 'string', 'var_2': 'string', 'var_3': 'string', 'var_4': 'string', 'correct_answer': 'string', 'timer': 0, 'level': 'string', 'test_type': 'string'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2025-02-07 21:56:50,947 - app_logger - ERROR - Ошибка при добавлении теста.
+2025-02-07 21:57:42,220 - app_logger - ERROR - Ошибка при добавлении теста
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.InvalidTextRepresentation: ОШИБКА:  неверное значение для перечисления testlevel: "objects"
+LINE 1: ...ring', 'string', 'string', 'string', 'string', 0, 'objects',...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\testservice.py", line 24, in add_test_db
+    db.commit()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4353, in flush
+    self._flush(objects)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4449, in _flush
+    flush_context.execute()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.DataError: (psycopg2.errors.InvalidTextRepresentation) ОШИБКА:  неверное значение для перечисления testlevel: "objects"
+LINE 1: ...ring', 'string', 'string', 'string', 'string', 0, 'objects',...
+                                                             ^
+
+[SQL: INSERT INTO tests (question, var_1, var_2, var_3, var_4, correct_answer, timer, level, test_type) VALUES (%(question)s, %(var_1)s, %(var_2)s, %(var_3)s, %(var_4)s, %(correct_answer)s, %(timer)s, %(level)s, %(test_type)s) RETURNING tests.id]
+[parameters: {'question': 'string', 'var_1': 'string', 'var_2': 'string', 'var_3': 'string', 'var_4': 'string', 'correct_answer': 'string', 'timer': 0, 'level': 'objects', 'test_type': 'type1'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2025-02-07 21:57:42,224 - app_logger - ERROR - Ошибка при добавлении теста.
+2025-02-07 22:03:08,787 - app_logger - ERROR - Ошибка при добавлении теста
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.InvalidTextRepresentation: ОШИБКА:  неверное значение для перечисления testlevel: "objects"
+LINE 1: ...ring', 'string', 'string', 'string', 'string', 0, 'objects',...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\testservice.py", line 24, in add_test_db
+    db.commit()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4353, in flush
+    self._flush(objects)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4449, in _flush
+    flush_context.execute()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.DataError: (psycopg2.errors.InvalidTextRepresentation) ОШИБКА:  неверное значение для перечисления testlevel: "objects"
+LINE 1: ...ring', 'string', 'string', 'string', 'string', 0, 'objects',...
+                                                             ^
+
+[SQL: INSERT INTO tests (question, var_1, var_2, var_3, var_4, correct_answer, timer, level, test_type) VALUES (%(question)s, %(var_1)s, %(var_2)s, %(var_3)s, %(var_4)s, %(correct_answer)s, %(timer)s, %(level)s, %(test_type)s) RETURNING tests.id]
+[parameters: {'question': 'string', 'var_1': 'string', 'var_2': 'string', 'var_3': 'string', 'var_4': 'string', 'correct_answer': 'string', 'timer': 0, 'level': 'objects', 'test_type': 'type1'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2025-02-07 22:03:08,796 - app_logger - ERROR - Ошибка при добавлении теста.
+2025-02-07 22:11:34,556 - app_logger - INFO - Тест успешно добавлен.
+2025-02-07 22:11:50,766 - app_logger - INFO - Тест с id 1 успешно удалён.
+2025-02-07 22:12:47,151 - app_logger - INFO - Тест успешно добавлен.
+2025-02-07 22:13:18,810 - app_logger - INFO - Данные теста с id 2 успешно обновлены.
+2025-02-07 22:15:55,593 - app_logger - INFO - Получено 1 тестов для уровня objects.

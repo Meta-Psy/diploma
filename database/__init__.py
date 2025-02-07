@@ -1,14 +1,16 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
-# указываем тип и название базы данных
-SQLALCHEMY_DATABASE_URI = 'sqlite:///data.db'
-# создаём движок нашей базы данных
+
+DB_USER = "postgres"
+DB_PASSWORD = "admin"
+DB_HOST = "localhost"
+DB_PORT = "5432"
+DB_NAME = "postgres"
+SQLALCHEMY_DATABASE_URI = f'postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
 engine = create_engine(SQLALCHEMY_DATABASE_URI)
-# создание функции для создания сессий
 SessionLocal = sessionmaker(bind=engine)
-# создаём суперкласс для модели (будем его наследовать наподобие Models в django)
+
 Base = declarative_base()
-# создание функции генератора сессии
 
 
 def get_db():
@@ -20,6 +22,3 @@ def get_db():
         raise
     finally:
         db.close()
-
-
-
