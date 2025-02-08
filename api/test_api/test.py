@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel
+from typing import List
 from database.testservice import *
 from logging_config import logger
 
@@ -12,8 +13,11 @@ class TestCreate(BaseModel):
     var_4: str
     correct_answer: str
     timer: int
-    level: str  # например, "objects", "actions", "skills"
-    test_type: str  # например, "type1", "type2", "type3"
+    level: TestLevel
+    test_type: TestType
+
+    class Config:
+        orm_mode = True
 
 
 class TestUpdate(BaseModel):
@@ -24,9 +28,21 @@ class TestUpdate(BaseModel):
     var_4: str = None
     correct_answer: str = None
     timer: int = None
-    level: str = None
-    test_type: str = None
+    level: TestLevel = None
+    test_type: TestType = None
 
+    class Config:
+        orm_mode = True
+
+
+class TestsResponse(BaseModel):
+    status: int
+    message: List[TestCreate]
+
+
+class TestsUpdateResponse(BaseModel):
+    status: int
+    message: List[TestUpdate]
 
 test_router = APIRouter(prefix='/tests', tags=['Тесты'])
 
@@ -61,52 +77,53 @@ async def delete_test(test_id: int):
     raise HTTPException(status_code=404, detail="Тест не найден или ошибка удаления.")
 
 
-@test_router.put('/{test_id}', response_model=dict)
-async def update_test(test_id: int, test_data: TestUpdate):
+@test_router.put('/{test_id}', response_model=TestUpdate)
+async def update_test(test_id: int, data: TestUpdate):
     result = change_test_db(
         test_id,
-        question=test_data.question,
-        var_1=test_data.var_1,
-        var_2=test_data.var_2,
-        var_3=test_data.var_3,
-        var_4=test_data.var_4,
-        correct_answer=test_data.correct_answer,
-        timer=test_data.timer,
-        level=test_data.level,
-        test_type=test_data.test_type
+        question=data.question,
+        var_1=data.var_1,
+        var_2=data.var_2,
+        var_3=data.var_3,
+        var_4=data.var_4,
+        correct_answer=data.correct_answer,
+        timer=data.timer,
+        level=data.level,
+        test_type=data.test_type
     )
     if result:
         logger.info(f"Данные теста с id {test_id} успешно обновлены.")
-        return {"status": 1, "message": f"Тест с id {test_id} обновлён."}
+        return {"status": 1, "message": data}
     logger.error("Ошибка обновления теста.")
     raise HTTPException(status_code=400, detail="Ошибка обновления теста.")
 
 
-@test_router.get('/', response_model=dict)
+@test_router.get('/', response_model=TestsResponse)
 async def get_all_tests():
     tests = all_tests_db()
-    logger.info(f"Получено {len(tests)} тестов.")
-    return {"status": 1, "data": tests}
+    if tests:
+        return {"status": 1, "message": tests}
+    raise HTTPException(status_code=404, detail="Тесты не найдены")
 
 
-@test_router.get('/level/{level}', response_model=dict)
-async def get_tests_by_level(level: str):
+@test_router.get('/level/{level}', response_model=TestsResponse)
+async def get_tests_by_level(level: TestLevel):
     tests = all_level_tests_db(level)
-    logger.info(f"Получено {len(tests)} тестов для уровня {level}.")
-    return {"status": 1, "data": tests}
+    if tests:
+        return {"status": 1, "message": tests}
+    raise HTTPException(status_code=404, detail="Тесты не найдены.")
 
 
-@test_router.get('/train/{level}', response_model=dict)
-async def get_train_tests(level: str):
+@test_router.get('/train/{level}', response_model=TestsResponse)
+async def get_train_tests(level: TestLevel):
     result = get_30_tests_train_db(level)
     if isinstance(result, str):
         logger.info(result)
         raise HTTPException(status_code=400, detail=result)
-    logger.info(f"Получено 30 тестов для тренировки уровня {level}.")
-    return {"status": 1, "data": result}
+    return {"status": 1, "message": result}
 
 
-@test_router.get('/exam', response_model=dict)
+@test_router.get('/exam', response_model=TestsResponse)
 async def get_exam_tests(
     num_level_1: int = Query(15, ge=0),
     num_level_2: int = Query(10, ge=0),
@@ -116,4 +133,4 @@ async def get_exam_tests(
     if isinstance(result, str):
         logger.info(result)
         raise HTTPException(status_code=400, detail=result)
-    return {"status": 1, "data": result}
+    return {"status": 1, "message": result}

@@ -1,6 +1,7 @@
 from database import get_db
-from database.models import Test, TestLevel, TestType
+from database.models import Test, TestLevel, TestType, TestAttempt
 import random
+from sqlalchemy import func
 from sqlalchemy.exc import SQLAlchemyError
 from logging_config import logger
 
@@ -98,8 +99,14 @@ def all_level_tests_db(level):
 
 def get_30_tests_train_db(level):
     try:
-        with next(get_db()) as db:
-            tests = db.query(Test).filter_by(level=TestLevel(level)).order_by(Test.attempt).limit(30).all()
+        with (next(get_db()) as db):
+            subq = db.query(TestAttempt.test_id, func.count(TestAttempt.id).label("attempt_count")).group_by(TestAttempt.test_id).subquery()
+            tests = (db.query(Test)
+                     .outerjoin(subq, Test.id == subq.c.test_id)
+                     .filter(Test.level == TestLevel(level))
+                     .order_by(subq.c.attempt_count)
+                     .limit(30)
+                     .all())
             if len(tests) < 30:
                 msg = 'Не достаточно тестов по этой теме для тренировки'
                 logger.info(msg)
@@ -119,9 +126,9 @@ def get_30_tests_exam_db(num_level_1=15, num_level_2=10, num_level_3=5):
             logger.info(msg)
             return msg
         with next(get_db()) as db:
-            level_1 = db.query(Test).filter_by(level=TestLevel.LEVEL_1).order_by(Test.attempt).limit(num_level_1).all()
-            level_2 = db.query(Test).filter_by(level=TestLevel.LEVEL_2).order_by(Test.attempt).limit(num_level_2).all()
-            level_3 = db.query(Test).filter_by(level=TestLevel.LEVEL_3).order_by(Test.attempt).limit(num_level_3).all()
+            level_1 = db.query(Test).filter(Test.level == TestLevel.LEVEL_1).order_by(Test.id).limit(num_level_1).all()
+            level_2 = db.query(Test).filter(Test.level == TestLevel.LEVEL_2).order_by(Test.id).limit(num_level_2).all()
+            level_3 = db.query(Test).filter(Test.level == TestLevel.LEVEL_3).order_by(Test.id).limit(num_level_3).all()
             tests = level_1 + level_2 + level_3
             if len(tests) < 30:
                 msg = f'В базе недостаточно тестов: найдено только {len(tests)} из 30'

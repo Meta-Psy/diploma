@@ -104,7 +104,7 @@ async def register_user(user: UserCreate):
     raise HTTPException(status_code=400, detail='Ошибка регистрации пользователя')
 
 
-@admin_router.delete('/{user_id}')
+@admin_router.delete('/user_del/{user_id}')
 async def delete_user(user_id: int):
     result = user_delete_db(user_id)
     if result:
@@ -112,7 +112,7 @@ async def delete_user(user_id: int):
     raise HTTPException(status_code=404, detail='Пользователь не найден или ошибка удаления')
 
 
-@admin_router.post('/{user_id}/block')
+@admin_router.post('/user_block/{user_id}/block')
 async def block_user(user_id: int):
     result = block_user_db(user_id)
     if result:
@@ -120,7 +120,7 @@ async def block_user(user_id: int):
     raise HTTPException(status_code=400, detail='Ошибка блокировки пользователя')
 
 
-@admin_router.post('/{user_id}/unblock')
+@admin_router.post('/user_unblock/{user_id}')
 async def unblock_user(user_id: int):
     result = unblock_user_db(user_id)
     if result:
@@ -128,7 +128,7 @@ async def unblock_user(user_id: int):
     raise HTTPException(status_code=400, detail='Ошибка разблокировки пользователя')
 
 
-@admin_router.put('/{user_id}')
+@admin_router.put('/user_update/{user_id}')
 async def update_user(user_id: int, user_data: ChangeUserData):
     result = change_user_data_db(
         user_id,

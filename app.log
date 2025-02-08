@@ -432,3 +432,966 @@ LINE 1: ...ring', 'string', 'string', 'string', 'string', 0, 'objects',...
 2025-02-07 22:12:47,151 - app_logger - INFO - Тест успешно добавлен.
 2025-02-07 22:13:18,810 - app_logger - INFO - Данные теста с id 2 успешно обновлены.
 2025-02-07 22:15:55,593 - app_logger - INFO - Получено 1 тестов для уровня objects.
+2025-02-07 22:36:30,987 - app_logger - INFO - Получено 1 тестов для уровня objects.
+2025-02-07 22:36:44,294 - app_logger - INFO - Получено 1 тестов для уровня objects.
+2025-02-07 22:46:05,813 - app_logger - INFO - Не найден пользователь или неверный пароль для 933977116
+2025-02-07 23:00:08,168 - app_logger - ERROR - Ошибка при получении тестов из БД.
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.InvalidTextRepresentation: ОШИБКА:  неверное значение для перечисления testlevel: "object"
+LINE 3: WHERE tests.level = 'object'
+                            ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\testservice.py", line 92, in all_level_tests_db
+    level_tests = db.query(Test).filter_by(level=level).all()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2699, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2853, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.DataError: (psycopg2.errors.InvalidTextRepresentation) ОШИБКА:  неверное значение для перечисления testlevel: "object"
+LINE 3: WHERE tests.level = 'object'
+                            ^
+
+[SQL: SELECT tests.id AS tests_id, tests.question AS tests_question, tests.var_1 AS tests_var_1, tests.var_2 AS tests_var_2, tests.var_3 AS tests_var_3, tests.var_4 AS tests_var_4, tests.correct_answer AS tests_correct_answer, tests.timer AS tests_timer, tests.level AS tests_level, tests.test_type AS tests_test_type 
+FROM tests 
+WHERE tests.level = %(level_1)s]
+[parameters: {'level_1': 'object'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2025-02-07 23:00:39,959 - app_logger - INFO - Тест успешно добавлен.
+2025-02-07 23:00:49,727 - app_logger - ERROR - Ошибка при получении тестов из БД.
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.InvalidTextRepresentation: ОШИБКА:  неверное значение для перечисления testlevel: "objects"
+LINE 3: WHERE tests.level = 'objects'
+                            ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\testservice.py", line 92, in all_level_tests_db
+    level_tests = db.query(Test).filter_by(level=level).all()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2699, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2853, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.DataError: (psycopg2.errors.InvalidTextRepresentation) ОШИБКА:  неверное значение для перечисления testlevel: "objects"
+LINE 3: WHERE tests.level = 'objects'
+                            ^
+
+[SQL: SELECT tests.id AS tests_id, tests.question AS tests_question, tests.var_1 AS tests_var_1, tests.var_2 AS tests_var_2, tests.var_3 AS tests_var_3, tests.var_4 AS tests_var_4, tests.correct_answer AS tests_correct_answer, tests.timer AS tests_timer, tests.level AS tests_level, tests.test_type AS tests_test_type 
+FROM tests 
+WHERE tests.level = %(level_1)s]
+[parameters: {'level_1': 'objects'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2025-02-07 23:46:06,640 - app_logger - ERROR - Произошла ошибка при сохранении ответа пользователя.
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2437, in _determine_joins
+    self.primaryjoin = join_condition(
+                       ^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\util.py", line 123, in join_condition
+    return Join._join_condition(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\selectable.py", line 1400, in _join_condition
+    cls._joincond_trim_constraints(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\selectable.py", line 1545, in _joincond_trim_constraints
+    raise exc.AmbiguousForeignKeysError(
+sqlalchemy.exc.AmbiguousForeignKeysError: Can't determine join between 'user_answers' and 'tests'; tables have more than one foreign key constraint relationship between them. Please specify the 'onclause' of this join explicitly.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\userservice.py", line 11, in user_get_answer_db
+    test = db.query(Test).filter_by(id=test_id).first()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2955, in query
+    return self._query_cls(entities, self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 275, in __init__
+    self._set_entities(entities)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 288, in _set_entities
+    coercions.expect(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 388, in expect
+    insp._post_inspect
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1257, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4254, in _do_configure_registries
+    mapper._post_configure_properties()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2418, in _post_configure_properties
+    prop.init()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\interfaces.py", line 589, in init
+    self.do_init()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 1658, in do_init
+    self._setup_join_conditions()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 1898, in _setup_join_conditions
+    self._join_condition = jc = JoinCondition(
+                                ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2324, in __init__
+    self._determine_joins()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2481, in _determine_joins
+    raise sa_exc.AmbiguousForeignKeysError(
+sqlalchemy.exc.AmbiguousForeignKeysError: Could not determine join condition between parent/child tables on relationship UserAnswer.test - there are multiple foreign key paths linking the tables.  Specify the 'foreign_keys' argument, providing a list of those columns which should be counted as containing a foreign key reference to the parent table.
+2025-02-07 23:46:06,891 - app_logger - ERROR - Ошибка при сохранении ответа для теста 0.
+2025-02-07 23:46:51,540 - app_logger - ERROR - Произошла ошибка при сохранении ответа пользователя.
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2437, in _determine_joins
+    self.primaryjoin = join_condition(
+                       ^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\util.py", line 123, in join_condition
+    return Join._join_condition(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\selectable.py", line 1400, in _join_condition
+    cls._joincond_trim_constraints(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\selectable.py", line 1545, in _joincond_trim_constraints
+    raise exc.AmbiguousForeignKeysError(
+sqlalchemy.exc.AmbiguousForeignKeysError: Can't determine join between 'user_answers' and 'tests'; tables have more than one foreign key constraint relationship between them. Please specify the 'onclause' of this join explicitly.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\userservice.py", line 11, in user_get_answer_db
+    test = db.query(Test).filter_by(id=test_id).first()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2955, in query
+    return self._query_cls(entities, self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 275, in __init__
+    self._set_entities(entities)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 288, in _set_entities
+    coercions.expect(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 388, in expect
+    insp._post_inspect
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1257, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4254, in _do_configure_registries
+    mapper._post_configure_properties()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2418, in _post_configure_properties
+    prop.init()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\interfaces.py", line 589, in init
+    self.do_init()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 1658, in do_init
+    self._setup_join_conditions()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 1898, in _setup_join_conditions
+    self._join_condition = jc = JoinCondition(
+                                ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2324, in __init__
+    self._determine_joins()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2481, in _determine_joins
+    raise sa_exc.AmbiguousForeignKeysError(
+sqlalchemy.exc.AmbiguousForeignKeysError: Could not determine join condition between parent/child tables on relationship UserAnswer.test - there are multiple foreign key paths linking the tables.  Specify the 'foreign_keys' argument, providing a list of those columns which should be counted as containing a foreign key reference to the parent table.
+2025-02-07 23:46:51,567 - app_logger - ERROR - Ошибка при сохранении ответа для теста 2.
+2025-02-08 00:07:29,001 - app_logger - ERROR - Error in admin_registration, performing rollback
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2437, in _determine_joins
+    self.primaryjoin = join_condition(
+                       ^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\util.py", line 123, in join_condition
+    return Join._join_condition(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\selectable.py", line 1400, in _join_condition
+    cls._joincond_trim_constraints(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\selectable.py", line 1545, in _joincond_trim_constraints
+    raise exc.AmbiguousForeignKeysError(
+sqlalchemy.exc.AmbiguousForeignKeysError: Can't determine join between 'user_answers' and 'tests'; tables have more than one foreign key constraint relationship between them. Please specify the 'onclause' of this join explicitly.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\adminservice.py", line 18, in admin_registration_db
+    existing_admin = db.query(Admin).filter_by(number=number).first()
+                     ^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2955, in query
+    return self._query_cls(entities, self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 275, in __init__
+    self._set_entities(entities)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 288, in _set_entities
+    coercions.expect(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 388, in expect
+    insp._post_inspect
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1257, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4254, in _do_configure_registries
+    mapper._post_configure_properties()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2418, in _post_configure_properties
+    prop.init()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\interfaces.py", line 589, in init
+    self.do_init()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 1658, in do_init
+    self._setup_join_conditions()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 1898, in _setup_join_conditions
+    self._join_condition = jc = JoinCondition(
+                                ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2324, in __init__
+    self._determine_joins()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2481, in _determine_joins
+    raise sa_exc.AmbiguousForeignKeysError(
+sqlalchemy.exc.AmbiguousForeignKeysError: Could not determine join condition between parent/child tables on relationship UserAnswer.test - there are multiple foreign key paths linking the tables.  Specify the 'foreign_keys' argument, providing a list of those columns which should be counted as containing a foreign key reference to the parent table.
+2025-02-08 00:08:17,456 - app_logger - ERROR - Error in admin_registration, performing rollback
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\adminservice.py", line 18, in admin_registration_db
+    existing_admin = db.query(Admin).filter_by(number=number).first()
+                     ^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2955, in query
+    return self._query_cls(entities, self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 275, in __init__
+    self._set_entities(entities)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 288, in _set_entities
+    coercions.expect(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 388, in expect
+    insp._post_inspect
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1257, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4250, in _do_configure_registries
+    raise e
+sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[UserAnswer(user_answers)]'. Original exception was: Could not determine join condition between parent/child tables on relationship UserAnswer.test - there are multiple foreign key paths linking the tables.  Specify the 'foreign_keys' argument, providing a list of those columns which should be counted as containing a foreign key reference to the parent table.
+2025-02-08 00:08:35,268 - app_logger - ERROR - Error in admin_registration, performing rollback
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\adminservice.py", line 18, in admin_registration_db
+    existing_admin = db.query(Admin).filter_by(number=number).first()
+                     ^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2955, in query
+    return self._query_cls(entities, self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 275, in __init__
+    self._set_entities(entities)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 288, in _set_entities
+    coercions.expect(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 388, in expect
+    insp._post_inspect
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1257, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4250, in _do_configure_registries
+    raise e
+sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[UserAnswer(user_answers)]'. Original exception was: Could not determine join condition between parent/child tables on relationship UserAnswer.test - there are multiple foreign key paths linking the tables.  Specify the 'foreign_keys' argument, providing a list of those columns which should be counted as containing a foreign key reference to the parent table.
+2025-02-08 00:14:20,316 - app_logger - INFO - Админ 933977120 зарегистрирован успешно.
+2025-02-08 00:14:45,483 - app_logger - INFO - Не найден пользователь или неверный пароль для 933977120
+2025-02-08 00:17:42,256 - app_logger - INFO - Не найден пользователь или неверный пароль для 933977120
+2025-02-08 00:45:40,242 - app_logger - INFO - Проверка существования админа с номером: '933977121'
+2025-02-08 00:45:40,429 - app_logger - INFO - Регистрация админа 933977121 прошла успешно.
+2025-02-08 00:45:40,432 - app_logger - INFO - Админ 933977121 зарегистрирован успешно.
+2025-02-08 00:57:56,993 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 00:58:40,100 - app_logger - INFO - Данные теста с id 4 успешно обновлены.
+2025-02-08 00:59:53,865 - app_logger - INFO - Данные теста с id 4 успешно обновлены.
+2025-02-08 01:03:56,127 - app_logger - INFO - Данные теста с id 4 успешно обновлены.
+2025-02-08 01:05:29,643 - app_logger - INFO - Данные теста с id 4 успешно обновлены.
+2025-02-08 01:06:00,612 - app_logger - INFO - Данные теста с id 4 успешно обновлены.
+2025-02-08 01:10:42,322 - app_logger - INFO - Данные теста с id 4 успешно обновлены.
+2025-02-08 01:15:03,616 - app_logger - INFO - Данные теста с id 4 успешно обновлены.
+2025-02-08 01:15:36,291 - app_logger - INFO - Данные теста с id 4 успешно обновлены.
+2025-02-08 01:22:17,224 - app_logger - INFO - Данные теста с id 4 успешно обновлены.
+2025-02-08 01:48:21,755 - app_logger - ERROR - Ошибка при получении 30 тренировочных тестов
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\testservice.py", line 102, in get_30_tests_train_db
+    tests = db.query(Test).filter_by(level=TestLevel(level)).order_by(Test.test_attempts).limit(30).all()
+            ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2955, in query
+    return self._query_cls(entities, self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 275, in __init__
+    self._set_entities(entities)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 288, in _set_entities
+    coercions.expect(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 388, in expect
+    insp._post_inspect
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1257, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4254, in _do_configure_registries
+    mapper._post_configure_properties()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2418, in _post_configure_properties
+    prop.init()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\interfaces.py", line 589, in init
+    self.do_init()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 1661, in do_init
+    self._generate_backref()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2089, in _generate_backref
+    raise sa_exc.ArgumentError(
+sqlalchemy.exc.ArgumentError: Error creating backref 'test_attempts' on relationship 'TestAttempt.user': property of that name exists on mapper 'Mapper[User(users)]'
+2025-02-08 01:48:21,779 - app_logger - INFO - Ошибка при получении тестов
+2025-02-08 01:55:14,243 - app_logger - ERROR - Ошибка при получении 30 тренировочных тестов
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: ОШИБКА:  таблица "test_attempts" отсутствует в предложении FROM
+LINE 3: WHERE tests.level = 'LEVEL_1' ORDER BY tests.id = test_attem...
+                                                          ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\testservice.py", line 102, in get_30_tests_train_db
+    tests = db.query(Test).filter_by(level=TestLevel(level)).order_by(Test.test_attempts).limit(30).all()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2699, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2853, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) ОШИБКА:  таблица "test_attempts" отсутствует в предложении FROM
+LINE 3: WHERE tests.level = 'LEVEL_1' ORDER BY tests.id = test_attem...
+                                                          ^
+
+[SQL: SELECT tests.id AS tests_id, tests.question AS tests_question, tests.var_1 AS tests_var_1, tests.var_2 AS tests_var_2, tests.var_3 AS tests_var_3, tests.var_4 AS tests_var_4, tests.correct_answer AS tests_correct_answer, tests.timer AS tests_timer, tests.level AS tests_level, tests.test_type AS tests_test_type 
+FROM tests 
+WHERE tests.level = %(level_1)s ORDER BY tests.id = test_attempts.test_id 
+ LIMIT %(param_1)s]
+[parameters: {'level_1': 'LEVEL_1', 'param_1': 30}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-02-08 01:55:14,403 - app_logger - INFO - Ошибка при получении тестов
+2025-02-08 01:56:16,479 - app_logger - ERROR - Ошибка при получении 30 тренировочных тестов
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: ОШИБКА:  таблица "test_attempts" отсутствует в предложении FROM
+LINE 3: WHERE tests.level = 'LEVEL_1' ORDER BY tests.id = test_attem...
+                                                          ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\testservice.py", line 102, in get_30_tests_train_db
+    tests = db.query(Test).filter_by(level=TestLevel(level)).order_by(Test.test_attempts).limit(30).all()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2699, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2853, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) ОШИБКА:  таблица "test_attempts" отсутствует в предложении FROM
+LINE 3: WHERE tests.level = 'LEVEL_1' ORDER BY tests.id = test_attem...
+                                                          ^
+
+[SQL: SELECT tests.id AS tests_id, tests.question AS tests_question, tests.var_1 AS tests_var_1, tests.var_2 AS tests_var_2, tests.var_3 AS tests_var_3, tests.var_4 AS tests_var_4, tests.correct_answer AS tests_correct_answer, tests.timer AS tests_timer, tests.level AS tests_level, tests.test_type AS tests_test_type 
+FROM tests 
+WHERE tests.level = %(level_1)s ORDER BY tests.id = test_attempts.test_id 
+ LIMIT %(param_1)s]
+[parameters: {'level_1': 'LEVEL_1', 'param_1': 30}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-02-08 01:56:16,488 - app_logger - INFO - Ошибка при получении тестов
+2025-02-08 02:01:02,535 - app_logger - INFO - Не достаточно тестов по этой теме для тренировки
+2025-02-08 02:01:02,535 - app_logger - INFO - Не достаточно тестов по этой теме для тренировки
+2025-02-08 02:03:26,079 - app_logger - INFO - В базе недостаточно тестов: найдено только 3 из 30
+2025-02-08 02:03:26,079 - app_logger - INFO - В базе недостаточно тестов: найдено только 3 из 30
+2025-02-08 02:06:25,400 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:28,581 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:29,361 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:30,020 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:30,603 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:31,241 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:31,820 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:32,399 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:32,903 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:33,430 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:33,942 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:34,446 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:34,974 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:35,855 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:52,913 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:53,722 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:54,389 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:54,898 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:55,491 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:58,136 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:59,224 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:06:59,724 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:00,272 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:00,753 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:01,322 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:01,828 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:02,363 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:02,850 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:03,403 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:03,885 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:04,449 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:04,989 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:05,498 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:05,977 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:06,470 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:06,993 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:07,502 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:08,003 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:08,520 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:09,075 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:09,544 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:10,102 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:10,593 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:11,087 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:16,022 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:16,555 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:17,045 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:17,560 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:18,105 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:18,626 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:19,153 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:19,725 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:28,554 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:32,510 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:33,082 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:33,591 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:34,149 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:34,784 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:35,320 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:35,855 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:36,397 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:36,901 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:37,448 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:37,986 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:38,502 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:39,050 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:39,563 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:40,106 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:40,620 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:41,182 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:41,711 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:42,231 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 02:07:53,903 - app_logger - INFO - Тест с id 50 успешно удалён.
+2025-02-08 02:08:09,809 - app_logger - INFO - Данные теста с id 51 успешно обновлены.
+2025-02-08 02:09:07,193 - app_logger - INFO - Не достаточно тестов по этой теме для тренировки
+2025-02-08 02:09:07,193 - app_logger - INFO - Не достаточно тестов по этой теме для тренировки
+2025-02-08 02:10:07,495 - app_logger - INFO - Тест с ID 0 не найден.
+2025-02-08 02:10:07,495 - app_logger - ERROR - Ошибка при сохранении ответа для теста 0.
+2025-02-08 02:10:31,480 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 1, правильность: True.
+2025-02-08 02:10:36,957 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 2, правильность: True.
+2025-02-08 02:10:37,711 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 3, правильность: True.
+2025-02-08 02:10:40,715 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 4, правильность: True.
+2025-02-08 02:10:41,302 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 5, правильность: True.
+2025-02-08 02:10:41,865 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 6, правильность: True.
+2025-02-08 02:10:42,450 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 7, правильность: True.
+2025-02-08 02:10:42,949 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 8, правильность: True.
+2025-02-08 02:10:43,498 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 9, правильность: True.
+2025-02-08 02:10:44,079 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 10, правильность: True.
+2025-02-08 02:10:44,651 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 11, правильность: True.
+2025-02-08 02:10:45,186 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 12, правильность: True.
+2025-02-08 02:10:45,654 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 13, правильность: True.
+2025-02-08 02:10:46,242 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 14, правильность: True.
+2025-02-08 02:10:46,833 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 15, правильность: True.
+2025-02-08 02:10:47,344 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 16, правильность: True.
+2025-02-08 02:10:47,887 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 17, правильность: True.
+2025-02-08 02:10:48,475 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 18, правильность: True.
+2025-02-08 02:10:49,012 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 19, правильность: True.
+2025-02-08 02:10:49,567 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 20, правильность: True.
+2025-02-08 02:10:50,127 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 21, правильность: True.
+2025-02-08 02:10:50,695 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 22, правильность: True.
+2025-02-08 02:10:51,237 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 23, правильность: True.
+2025-02-08 02:10:51,778 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 24, правильность: True.
+2025-02-08 02:10:52,355 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 25, правильность: True.
+2025-02-08 02:10:52,928 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 26, правильность: True.
+2025-02-08 02:10:53,463 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 27, правильность: True.
+2025-02-08 02:10:54,029 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 28, правильность: True.
+2025-02-08 02:10:54,590 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 29, правильность: True.
+2025-02-08 02:10:55,169 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 30, правильность: True.
+2025-02-08 02:10:55,747 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 31, правильность: True.
+2025-02-08 02:10:56,252 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 32, правильность: True.
+2025-02-08 02:10:56,821 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 33, правильность: True.
+2025-02-08 02:10:57,311 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 34, правильность: True.
+2025-02-08 02:10:57,938 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 35, правильность: True.
+2025-02-08 02:10:58,455 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 36, правильность: True.
+2025-02-08 02:10:58,975 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 37, правильность: True.
+2025-02-08 02:10:59,516 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 38, правильность: True.
+2025-02-08 02:11:00,115 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 39, правильность: True.
+2025-02-08 02:11:00,533 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 40, правильность: True.
+2025-02-08 02:11:01,027 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 41, правильность: True.
+2025-02-08 02:11:01,576 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 42, правильность: True.
+2025-02-08 02:11:02,094 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 43, правильность: True.
+2025-02-08 02:11:02,543 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 44, правильность: True.
+2025-02-08 02:11:03,118 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 45, правильность: True.
+2025-02-08 02:11:03,623 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 46, правильность: True.
+2025-02-08 02:11:04,098 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 47, правильность: True.
+2025-02-08 02:11:04,604 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 48, правильность: True.
+2025-02-08 02:11:05,095 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 49, правильность: True.
+2025-02-08 02:11:05,523 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 50, правильность: True.
+2025-02-08 02:11:06,062 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 51, правильность: True.
+2025-02-08 02:11:06,579 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 52, правильность: True.
+2025-02-08 02:11:07,046 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 53, правильность: True.
+2025-02-08 02:11:07,547 - app_logger - INFO - Сохранен ответ для теста ID 40, попытка 54, правильность: True.
+2025-02-08 02:11:23,437 - app_logger - INFO - Рейтингов для пользователя с ID 4 не найдено.
+2025-02-08 02:11:35,523 - app_logger - INFO - Рейтингов для пользователя с ID 5 не найдено.
+2025-02-08 02:11:41,331 - app_logger - INFO - Рейтингов для пользователя с ID 6 не найдено.
+2025-02-08 02:11:46,861 - app_logger - INFO - Рейтингов для пользователя с ID 7 не найдено.
+2025-02-08 02:12:04,196 - app_logger - INFO - Рейтингов для пользователя с ID 8 не найдено.
+2025-02-08 02:12:09,183 - app_logger - INFO - Рейтингов для пользователя с ID 9 не найдено.
+2025-02-08 02:12:13,767 - app_logger - INFO - Рейтингов для пользователя с ID 10 не найдено.
+2025-02-08 02:13:05,724 - app_logger - INFO - Рейтинг с ID 1 для пользователя с ID 11 не найден.
+2025-02-08 02:13:52,087 - app_logger - INFO - У пользователя с ID 10 нет записей рейтинга.
+2025-02-08 03:21:32,302 - app_logger - ERROR - Ошибка при удалении теста
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2522, in get_property
+    return self._props[key]
+           ~~~~~~~~~~~^^^^^
+KeyError: 'user'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\testservice.py", line 36, in delete_test_db
+    test = db.query(Test).filter_by(id=test_id).first()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2955, in query
+    return self._query_cls(entities, self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 275, in __init__
+    self._set_entities(entities)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 288, in _set_entities
+    coercions.expect(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 388, in expect
+    insp._post_inspect
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1257, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4254, in _do_configure_registries
+    mapper._post_configure_properties()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2418, in _post_configure_properties
+    prop.init()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\interfaces.py", line 589, in init
+    self.do_init()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 1661, in do_init
+    self._generate_backref()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2147, in _generate_backref
+    self._add_reverse_property(self.back_populates)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\relationships.py", line 1592, in _add_reverse_property
+    other = self.mapper.get_property(key, _configure_mappers=False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2524, in get_property
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper[UserAnswer(user_answers)]' has no property 'user'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.
+2025-02-08 03:21:32,326 - app_logger - ERROR - Тест с id 56 не найден или ошибка удаления.
+2025-02-08 03:21:38,536 - app_logger - ERROR - Ошибка при удалении теста
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\testservice.py", line 36, in delete_test_db
+    test = db.query(Test).filter_by(id=test_id).first()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2955, in query
+    return self._query_cls(entities, self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 275, in __init__
+    self._set_entities(entities)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 288, in _set_entities
+    coercions.expect(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 388, in expect
+    insp._post_inspect
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1257, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4250, in _do_configure_registries
+    raise e
+sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[User(users)]'. Original exception was: Mapper 'Mapper[UserAnswer(user_answers)]' has no property 'user'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.
+2025-02-08 03:21:38,539 - app_logger - ERROR - Тест с id 52 не найден или ошибка удаления.
+2025-02-08 03:21:43,523 - app_logger - ERROR - Ошибка при удалении теста
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\testservice.py", line 36, in delete_test_db
+    test = db.query(Test).filter_by(id=test_id).first()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2955, in query
+    return self._query_cls(entities, self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 275, in __init__
+    self._set_entities(entities)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 288, in _set_entities
+    coercions.expect(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 388, in expect
+    insp._post_inspect
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1257, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4250, in _do_configure_registries
+    raise e
+sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[User(users)]'. Original exception was: Mapper 'Mapper[UserAnswer(user_answers)]' has no property 'user'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.
+2025-02-08 03:21:43,525 - app_logger - ERROR - Тест с id 1 не найден или ошибка удаления.
+2025-02-08 03:22:21,368 - app_logger - INFO - Проверка существования админа с номером: '933977109'
+2025-02-08 03:22:21,368 - app_logger - ERROR - Error in admin_registration, performing rollback
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\adminservice.py", line 19, in admin_registration_db
+    existing_admin = db.query(Admin).filter_by(number=number).first()
+                     ^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2955, in query
+    return self._query_cls(entities, self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 275, in __init__
+    self._set_entities(entities)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 288, in _set_entities
+    coercions.expect(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 388, in expect
+    insp._post_inspect
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1257, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4250, in _do_configure_registries
+    raise e
+sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[User(users)]'. Original exception was: Mapper 'Mapper[UserAnswer(user_answers)]' has no property 'user'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.
+2025-02-08 03:22:38,484 - app_logger - INFO - Проверка существования админа с номером: '933977135'
+2025-02-08 03:22:38,486 - app_logger - ERROR - Error in admin_registration, performing rollback
+Traceback (most recent call last):
+  File "C:\Users\Alex\PycharmProjects\diplom\database\adminservice.py", line 19, in admin_registration_db
+    existing_admin = db.query(Admin).filter_by(number=number).first()
+                     ^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2955, in query
+    return self._query_cls(entities, self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 275, in __init__
+    self._set_entities(entities)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 288, in _set_entities
+    coercions.expect(
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 388, in expect
+    insp._post_inspect
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1257, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ^^^^^^^^^^^^^^
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4213, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "C:\Users\Alex\PycharmProjects\diplom\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4250, in _do_configure_registries
+    raise e
+sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[User(users)]'. Original exception was: Mapper 'Mapper[UserAnswer(user_answers)]' has no property 'user'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.
+2025-02-08 03:27:40,012 - app_logger - INFO - Проверка существования админа с номером: '933977140'
+2025-02-08 03:27:40,278 - app_logger - INFO - Регистрация админа 933977140 прошла успешно.
+2025-02-08 03:27:40,278 - app_logger - INFO - Админ 933977140 зарегистрирован успешно.
+2025-02-08 03:28:15,971 - app_logger - INFO - Админ с id 4 удалён.
+2025-02-08 03:28:50,749 - app_logger - INFO - Админ с ID: 11 не найден.
+2025-02-08 03:28:55,481 - app_logger - INFO - Админ с ID: 12 не найден.
+2025-02-08 03:29:09,649 - app_logger - INFO - Админ с ID: 1 не найден.
+2025-02-08 03:30:30,022 - app_logger - INFO - Админ с id 3 удалён.
+2025-02-08 03:32:18,150 - app_logger - INFO - Админ с ID: 4 для обновления данных не найден.
+2025-02-08 03:35:04,859 - app_logger - INFO - Админ с ID: 10 не найден.
+2025-02-08 03:36:47,506 - app_logger - INFO - Админ с ID: 9 не найден.
+2025-02-08 03:37:22,703 - app_logger - INFO - Пользователь с ID: 10 не найден.
+2025-02-08 03:37:27,750 - app_logger - INFO - Пользователь с ID: 9 не найден.
+2025-02-08 03:37:32,876 - app_logger - INFO - Пользователь с ID: 8 не найден.
+2025-02-08 03:37:38,171 - app_logger - INFO - Пользователь с ID: 7 не найден.
+2025-02-08 03:46:06,030 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:07,760 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:08,345 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:08,807 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:09,041 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:09,390 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:09,666 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:09,932 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:10,135 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:10,279 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:10,516 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:10,779 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:11,062 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:11,288 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:11,454 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:11,593 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:11,745 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:11,968 - app_logger - INFO - Тест успешно добавлен.
+2025-02-08 03:46:21,200 - app_logger - INFO - Тест с id 60 успешно удалён.
+2025-02-08 03:46:33,019 - app_logger - INFO - Данные теста с id 61 успешно обновлены.
+2025-02-08 03:49:59,932 - app_logger - INFO - Тест с ID 1 не найден.
+2025-02-08 03:49:59,934 - app_logger - ERROR - Ошибка при сохранении ответа для теста 1.
+2025-02-08 03:50:22,292 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 1, правильность: True.
+2025-02-08 03:50:26,650 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 2, правильность: True.
+2025-02-08 03:50:30,153 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 3, правильность: True.
+2025-02-08 03:50:31,479 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 4, правильность: True.
+2025-02-08 03:50:32,095 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 5, правильность: True.
+2025-02-08 03:50:32,394 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 6, правильность: True.
+2025-02-08 03:50:32,652 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 7, правильность: True.
+2025-02-08 03:50:32,909 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 8, правильность: True.
+2025-02-08 03:50:33,103 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 9, правильность: True.
+2025-02-08 03:50:33,267 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 10, правильность: True.
+2025-02-08 03:50:33,482 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 11, правильность: True.
+2025-02-08 03:50:33,848 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 12, правильность: True.
+2025-02-08 03:50:34,267 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 13, правильность: True.
+2025-02-08 03:50:34,548 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 14, правильность: True.
+2025-02-08 03:50:34,819 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 15, правильность: True.
+2025-02-08 03:50:35,158 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 16, правильность: True.
+2025-02-08 03:50:35,427 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 17, правильность: True.
+2025-02-08 03:50:35,690 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 18, правильность: True.
+2025-02-08 03:50:35,866 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 19, правильность: True.
+2025-02-08 03:50:36,113 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 20, правильность: True.
+2025-02-08 03:50:36,438 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 21, правильность: True.
+2025-02-08 03:50:36,612 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 22, правильность: True.
+2025-02-08 03:50:36,840 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 23, правильность: True.
+2025-02-08 03:50:37,110 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 24, правильность: True.
+2025-02-08 03:50:37,377 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 25, правильность: True.
+2025-02-08 03:50:37,637 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 26, правильность: True.
+2025-02-08 03:50:37,807 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 27, правильность: True.
+2025-02-08 03:50:37,938 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 28, правильность: True.
+2025-02-08 03:50:38,076 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 29, правильность: True.
+2025-02-08 03:50:38,229 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 30, правильность: True.
+2025-02-08 03:50:38,504 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 31, правильность: True.
+2025-02-08 03:50:38,751 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 32, правильность: True.
+2025-02-08 03:50:38,974 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 33, правильность: True.
+2025-02-08 03:50:39,165 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 34, правильность: True.
+2025-02-08 03:50:39,303 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 35, правильность: True.
+2025-02-08 03:50:39,574 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 36, правильность: True.
+2025-02-08 03:50:39,812 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 37, правильность: True.
+2025-02-08 03:50:40,014 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 38, правильность: True.
+2025-02-08 03:50:40,148 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 39, правильность: True.
+2025-02-08 03:50:40,270 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 40, правильность: True.
+2025-02-08 03:50:40,439 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 41, правильность: True.
+2025-02-08 03:50:40,694 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 42, правильность: True.
+2025-02-08 03:50:40,875 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 43, правильность: True.
+2025-02-08 03:50:41,012 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 44, правильность: True.
+2025-02-08 03:50:41,158 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 45, правильность: True.
+2025-02-08 03:50:41,425 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 46, правильность: True.
+2025-02-08 03:50:41,580 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 47, правильность: True.
+2025-02-08 03:50:41,710 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 48, правильность: True.
+2025-02-08 03:50:41,893 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 49, правильность: True.
+2025-02-08 03:50:42,103 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 50, правильность: True.
+2025-02-08 03:50:42,244 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 51, правильность: True.
+2025-02-08 03:50:42,407 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 52, правильность: True.
+2025-02-08 03:50:42,546 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 53, правильность: True.
+2025-02-08 03:50:42,719 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 54, правильность: True.
+2025-02-08 03:50:42,993 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 55, правильность: True.
+2025-02-08 03:50:43,242 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 56, правильность: True.
+2025-02-08 03:50:43,479 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 57, правильность: True.
+2025-02-08 03:50:43,625 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 58, правильность: True.
+2025-02-08 03:50:43,723 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 59, правильность: True.
+2025-02-08 03:50:43,901 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 60, правильность: True.
+2025-02-08 03:50:44,137 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 61, правильность: True.
+2025-02-08 03:50:44,385 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 62, правильность: True.
+2025-02-08 03:50:44,584 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 63, правильность: True.
+2025-02-08 03:50:44,763 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 64, правильность: True.
+2025-02-08 03:50:45,055 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 65, правильность: True.
+2025-02-08 03:50:45,203 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 66, правильность: True.
+2025-02-08 03:50:45,439 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 67, правильность: True.
+2025-02-08 03:50:45,583 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 68, правильность: True.
+2025-02-08 03:50:45,712 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 69, правильность: True.
+2025-02-08 03:50:45,945 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 70, правильность: True.
+2025-02-08 03:50:46,099 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 71, правильность: True.
+2025-02-08 03:50:46,248 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 72, правильность: True.
+2025-02-08 03:50:46,376 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 73, правильность: True.
+2025-02-08 03:50:46,563 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 74, правильность: True.
+2025-02-08 03:50:46,746 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 75, правильность: True.
+2025-02-08 03:50:46,889 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 76, правильность: True.
+2025-02-08 03:50:47,070 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 77, правильность: True.
+2025-02-08 03:50:47,284 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 78, правильность: True.
+2025-02-08 03:50:47,436 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 79, правильность: True.
+2025-02-08 03:50:47,563 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 80, правильность: True.
+2025-02-08 03:50:47,806 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 81, правильность: True.
+2025-02-08 03:50:48,028 - app_logger - INFO - Сохранен ответ для теста ID 10, попытка 82, правильность: True.
+2025-02-08 03:51:31,446 - app_logger - INFO - Сохранен ответ для теста ID 11, попытка 1, правильность: True.
+2025-02-08 03:51:42,415 - app_logger - INFO - Сохранен ответ для теста ID 11, попытка 2, правильность: False.
+2025-02-08 03:52:32,078 - app_logger - INFO - Рейтингов для пользователя с ID 10 не найдено.
+2025-02-08 03:52:41,519 - app_logger - INFO - Рейтингов для пользователя с ID 1 не найдено.
+2025-02-08 03:52:46,876 - app_logger - INFO - Рейтингов для пользователя с ID 2 не найдено.
+2025-02-08 03:52:52,632 - app_logger - INFO - Рейтингов для пользователя с ID 3 не найдено.
+2025-02-08 03:52:57,341 - app_logger - INFO - Рейтингов для пользователя с ID 4 не найдено.
+2025-02-08 03:53:03,362 - app_logger - INFO - Рейтингов для пользователя с ID 5 не найдено.
+2025-02-08 03:53:08,693 - app_logger - INFO - Рейтингов для пользователя с ID 6 не найдено.
+2025-02-08 03:53:12,532 - app_logger - INFO - Рейтингов для пользователя с ID 7 не найдено.
+2025-02-08 03:53:15,687 - app_logger - INFO - Рейтингов для пользователя с ID 8 не найдено.
+2025-02-08 03:53:21,220 - app_logger - INFO - Рейтингов для пользователя с ID 9 не найдено.
+2025-02-08 03:53:24,920 - app_logger - INFO - Рейтингов для пользователя с ID 10 не найдено.
+2025-02-08 03:53:27,956 - app_logger - INFO - Рейтингов для пользователя с ID 11 не найдено.
+2025-02-08 03:53:31,008 - app_logger - INFO - Рейтингов для пользователя с ID 12 не найдено.
+2025-02-08 03:53:33,728 - app_logger - INFO - Рейтингов для пользователя с ID 13 не найдено.
+2025-02-08 03:53:37,314 - app_logger - INFO - Рейтингов для пользователя с ID 14 не найдено.
+2025-02-08 03:53:40,720 - app_logger - INFO - Рейтингов для пользователя с ID 15 не найдено.
+2025-02-08 03:53:46,580 - app_logger - INFO - Рейтингов для пользователя с ID 16 не найдено.
+2025-02-08 03:53:51,517 - app_logger - INFO - Рейтингов для пользователя с ID 17 не найдено.
+2025-02-08 03:53:57,216 - app_logger - INFO - Рейтингов для пользователя с ID 18 не найдено.
+2025-02-08 03:54:03,296 - app_logger - INFO - Рейтингов для пользователя с ID 19 не найдено.
+2025-02-08 03:54:08,268 - app_logger - INFO - Рейтингов для пользователя с ID 20 не найдено.
+2025-02-08 04:10:00,447 - app_logger - INFO - У пользователя с ID 10 нет записей рейтинга.

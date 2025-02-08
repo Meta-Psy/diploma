@@ -12,12 +12,34 @@ class AnswerSubmission(BaseModel):
     user_response: str
 
 
+class RatingCreate(BaseModel):
+    correct_all: int
+    category_objects_type1: int
+    category_objects_type2: int
+    category_actions_type1: int
+    category_actions_type2: int
+    category_actions_type3: int
+    category_skills_type1: int
+    category_skills_type2: int
+    category_skills_type3: int
+    time: int
+
+
 @user_router.post("/answer")
 async def submit_answer(answer: AnswerSubmission):
     result = user_get_answer_db(answer.test_id, answer.timer, answer.user_response)
     if result:
         return {"status": 1, "message": "Ответ сохранен."}
     logger.error(f"Ошибка при сохранении ответа для теста {answer.test_id}.")
+    raise HTTPException(status_code=400, detail="Ошибка сохранения ответа.")
+
+
+@user_router.post("/test_rating")
+async def user_create_test_rating(rating_id: int):
+    result = user_create_test_rating_db(rating_id)
+    if result:
+        return {"status": 1, "message": "Ответ сохранен."}
+    logger.error(f"Ошибка при сохранении ответа для теста {rating_id}.")
     raise HTTPException(status_code=400, detail="Ошибка сохранения ответа.")
 
 

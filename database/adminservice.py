@@ -15,6 +15,7 @@ def admin_registration_db(admin_first_name, admin_last_name, number, password):
     hashed_password = hash_password(password)
     try:
         with next(get_db()) as db:
+            logger.info(f"Проверка существования админа с номером: '{number}'")
             existing_admin = db.query(Admin).filter_by(number=number).first()
             if existing_admin:
                 logger.info(f"Админ с номером: {number} уже существует.")
@@ -27,6 +28,7 @@ def admin_registration_db(admin_first_name, admin_last_name, number, password):
             )
             db.add(admin)
             db.commit()
+            logger.info(f"Регистрация админа {number} прошла успешно.")
             return True
     except SQLAlchemyError as e:
         logger.error("Error in admin_registration, performing rollback", exc_info=True)
